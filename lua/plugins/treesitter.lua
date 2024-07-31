@@ -17,7 +17,7 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   opts = {
-    ensure_installed = "bash", "comment", "css", "diff", "editorconfig", "gitignore", "html", "javascript", "json", "lua", "markdown", "php", "phpdoc", "scss", "sql", "twig", "typescript", "yaml",
+    ensure_installed = "all",
     auto_install = true,
     highlight = {
       enable = true,
