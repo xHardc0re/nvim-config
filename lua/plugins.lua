@@ -138,11 +138,18 @@ require("lazy").setup({
     "mfussenegger/nvim-dap",
     config = function()
       local dap = require("dap")
+
+      local home = os.getenv("HOME") or os.getenv("USERPROFILE")
+      local sep = package.config:sub(1, 1)
+
+      local debug_adapter_path = table.concat({ home, "vscode-php-debug", "out", "phpDebug.js" }, sep)
+
       dap.adapters.php = {
         type = "executable",
         command = "node",
-        args = { os.getenv("HOME") .. "/vscode-php-debug/out/phpDebug.js" }
+        args = { debug_adapter_path },
       }
+
       dap.configurations.php = {
         {
           type = "php",
