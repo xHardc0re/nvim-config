@@ -1,5 +1,6 @@
 local function get_intelephense_license()
-  local license_path = os.getenv("HOME") .. "/intelephense/license.txt"
+  local home = os.getenv("HOME") or os.getenv("USERPROFILE")
+  local license_path = home .. "/.intelephense/license.txt"
   local f = io.open(license_path, "r")
   if f then
     local key = f:read("*a")
